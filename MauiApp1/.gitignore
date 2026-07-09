@@ -1,0 +1,41 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# MAUI specific
+*.apk
+*.aab
+*.ipa
+*.apks
+
+# Mac/iOS
+*.app
+*.xcuserstate
+*.xcworkspace
+*.xcuserdata/
+*.DS_Store
+
+# Windows
+*.exe
+*.dll
+*.pdb
+*.cache
+*.dbmdl
+
+# Logs
+*.log
+
+# Others
+*.vsidx
+*.zip
+*.tar.gz
+*.tmp

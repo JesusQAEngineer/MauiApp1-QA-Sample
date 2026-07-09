@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Catch the Ball</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #222;
+        }
+
+        canvas {
+            display: block;
+            margin: auto;
+            background: #333;
+        }
+
+        #controls {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+    <div id="controls">
+        <button onclick="moveLeft()">⬅️ Left</button>
+        <button onclick="moveRight()">➡️ Right</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let ball = { x: 200, y: 50, radius: 15, dy: 3 };
+        let paddle = { x: 150, y: 550, width: 100, height: 15 };
+        let score = 0;
+
+        function moveLeft() {
+            paddle.x -= 30;
+            if (paddle.x < 0) paddle.x = 0;
+        }
+
+        function moveRight() {
+            paddle.x += 30;
+            if (paddle.x + paddle.width > canvas.width) paddle.x = canvas.width - paddle.width;
+        }
+
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawPaddle() {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+        }
+
+        function drawScore() {
+            ctx.fillStyle = "white";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 20);
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Ball movement
+            ball.y += ball.dy;
+
+            // Collision
+            if (ball.y + ball.radius >= paddle.y &&
+                ball.x >= paddle.x &&
+                ball.x <= paddle.x + paddle.width) {
+                score++;
+                ball.y = 50;
+                ball.x = Math.random() * (canvas.width - ball.radius * 2) + ball.radius;
+            }
+
+            // Reset if missed
+            if (ball.y > canvas.height) {
+                score = 0;
+                ball.y = 50;
+                ball.x = Math.random() * (canvas.width - ball.radius * 2) + ball.radius;
+            }
+
+            drawBall();
+            drawPaddle();
+            drawScore();
+
+            requestAnimationFrame(update);
+        }
+
+        update();
+    </script>
+</body>
+</html>
