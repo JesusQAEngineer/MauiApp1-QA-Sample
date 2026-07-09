@@ -1,4 +1,4 @@
-# MauiApp1 - QA Sample Project 🎮
+# Game 4 Kids for Android and iOS devices - QA Sample Project 🎮
 
 ## Overview
 This repository contains a QA Engineer sample project built with **.NET MAUI**.  
