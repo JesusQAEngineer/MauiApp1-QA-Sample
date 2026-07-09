@@ -22,7 +22,7 @@ The project demonstrates:
 ## QA Testing
 The `Tests` folder includes sample test scripts:
 
-- **GamePageTests.cs** → validates GamePage creation and WebView source.  
+- **GamePageTests.cs** → validates GamePage creation and WebView source.
 - **ThemeTests.cs** → validates theme switching (Light/Dark).  
 - **NavigationTests.cs** → validates Shell routes and navigation.  
 
@@ -36,10 +36,13 @@ dotnet test
 ---
 
 ## 🖥️ How to Run Locally
+
 Clone the repository:
 
 bash
+
 git clone https://github.com/JesusQAEngineer/MauiApp1-QA-Sample.git
+
 Open the solution in Visual Studio 2022.
 
 Select target platform (Windows, Android, iOS).
@@ -50,7 +53,8 @@ Press F5 to build and run.
 
 ## 📦 APK Release
 A universal APK build is available in the Releases section.
-Download it here: [Looks like the result wasn't safe to show. Let's switch things up and try something else!]
+
+Download it from Releases section.
 
 ---
 
